@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="InstallLocation">
+            <Component Id="Aspose.Cells.dll" Guid="B706742E-CDA7-4D40-819B-B3F1B1F284B4">
+                <File Id="Aspose.Cells.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Aspose.Cells.dll" />
+            </Component>
+            <Component Id="AutoMapper.dll" Guid="79CD68FD-8E4B-4BE3-84D8-BC2E6EF1ACA4">
+                <File Id="AutoMapper.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\AutoMapper.dll" />
+            </Component>
+            <Component Id="AutoMapper.xml" Guid="616AF140-DCFD-452A-AD5B-50696BB45FC6">
+                <File Id="AutoMapper.xml" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\AutoMapper.xml" />
+            </Component>
+            <Component Id="Carriers.db" Guid="059EE449-B03A-4112-8353-FADA9018EDAA">
+                <File Id="Carriers.db" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Carriers.db" />
+            </Component>
+            <Component Id="DiagnosticInformationAnalyzer.dll" Guid="333A7E12-14E1-469B-984E-9CE3D78A497B">
+                <File Id="DiagnosticInformationAnalyzer.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiagnosticInformationAnalyzer.dll" />
+            </Component>
+            <Component Id="DiagnosticInformationAnalyzer.dll.config" Guid="34C01D17-0ED8-4E67-9A10-7351EE8DBA51">
+                <File Id="DiagnosticInformationAnalyzer.dll.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiagnosticInformationAnalyzer.dll.config" />
+            </Component>
+            <Component Id="Diascan.Agent.CalcDiagDataLossTask.dll" Guid="9B641956-F003-45E6-BAFE-9A60EC44A133">
+                <File Id="Diascan.Agent.CalcDiagDataLossTask.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.CalcDiagDataLossTask.dll" />
+            </Component>
+            <Component Id="Diascan.Agent.CalcDiagDataLossTask.dll.config" Guid="BF077D30-C1BD-4E4B-9C00-3B7545F85485">
+                <File Id="Diascan.Agent.CalcDiagDataLossTask.dll.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.CalcDiagDataLossTask.dll.config" />
+            </Component>
+            <Component Id="Diascan.Agent.ComputeHashes.dll" Guid="F982D139-03F4-4D1A-9DBE-78DD213A430C">
+                <File Id="Diascan.Agent.ComputeHashes.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.ComputeHashes.dll" />
+            </Component>
+            <Component Id="Diascan.Agent.ComputeHashes.dll.config" Guid="05687F2C-4CBE-417A-83BA-7F650A1441B7">
+                <File Id="Diascan.Agent.ComputeHashes.dll.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.ComputeHashes.dll.config" />
+            </Component>
+            <Component Id="Diascan.Agent.Contractors.dll" Guid="D8A4A335-03AA-4583-BAD0-AD7C636E70AE">
+                <File Id="Diascan.Agent.Contractors.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.Contractors.dll" />
+            </Component>
+            <Component Id="Diascan.Agent.DiagDataLoader.cs.dll" Guid="E5E8B866-8C1C-4F80-A387-F77BFFB3B63A">
+                <File Id="Diascan.Agent.DiagDataLoader.cs.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.DiagDataLoader.cs.dll" />
+            </Component>
+            <Component Id="Diascan.Agent.DiagDataLoader.cs.dll.config" Guid="7852A31A-EC12-4EEA-BFD7-3444E521B4D0">
+                <File Id="Diascan.Agent.DiagDataLoader.cs.dll.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.DiagDataLoader.cs.dll.config" />
+            </Component>
+            <Component Id="Diascan.Agent.DirectoryDataModel.dll" Guid="4F833658-8E6E-47C7-A16B-0582F93C3B88">
+                <File Id="Diascan.Agent.DirectoryDataModel.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.DirectoryDataModel.dll" />
+            </Component>
+            <Component Id="Diascan.Agent.DirectoryDataModel.dll.config" Guid="45B30419-20BB-4374-A312-7A483FEC8EF4">
+                <File Id="Diascan.Agent.DirectoryDataModel.dll.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.DirectoryDataModel.dll.config" />
+            </Component>
+            <Component Id="Diascan.Agent.Logger.dll" Guid="424F789B-B59E-4B94-A37E-789EE70C9F79">
+                <File Id="Diascan.Agent.Logger.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.Logger.dll" />
+            </Component>
+            <Component Id="Diascan.Agent.Manager.dll" Guid="5AE16A24-705A-4A8D-A365-543CF9066360">
+                <File Id="Diascan.Agent.Manager.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.Manager.dll" />
+            </Component>
+            <Component Id="Diascan.Agent.Manager.dll.config" Guid="4D2F17B1-819B-45DC-BCF5-E2709C1F9988">
+                <File Id="Diascan.Agent.Manager.dll.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.Manager.dll.config" />
+            </Component>
+            <Component Id="Diascan.Agent.ModelDB.dll" Guid="DDB57E0D-A399-41FA-BF85-289F2DC7ED04">
+                <File Id="Diascan.Agent.ModelDB.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.ModelDB.dll" />
+            </Component>
+            <Component Id="Diascan.Agent.ModelDB.dll.config" Guid="3FFF64F6-960E-49A9-89F1-26B39562E9C7">
+                <File Id="Diascan.Agent.ModelDB.dll.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.ModelDB.dll.config" />
+            </Component>
+            <Component Id="Diascan.Agent.Service.exe" Guid="1E46036F-AD55-4504-B6B7-10EF0481A862">
+                <File Id="Diascan.Agent.Service.exe" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.Service.exe" />
+            </Component>
+            <Component Id="Diascan.Agent.Service.exe.config" Guid="4508D020-5875-4286-AAE2-57E37ADE4081">
+                <File Id="Diascan.Agent.Service.exe.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Agent.Service.exe.config" />
+            </Component>
+            <Component Id="Diascan.CdlChe_king.dll" Guid="4CD414F1-0E14-42E8-9365-402F178416A5">
+                <File Id="Diascan.CdlChe_king.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.CdlCheсking.dll" />
+            </Component>
+            <Component Id="Diascan.NDT.Enums.dll" Guid="27B47A84-BF98-40BD-AAF3-477A56F36546">
+                <File Id="Diascan.NDT.Enums.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.NDT.Enums.dll" />
+            </Component>
+            <Component Id="Diascan.NDT.Enums.xml" Guid="6C79BE51-B6B0-48B1-A760-39969B29540D">
+                <File Id="Diascan.NDT.Enums.xml" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.NDT.Enums.xml" />
+            </Component>
+            <Component Id="Diascan.Utils.DataBuffers.dll" Guid="221FB9DD-2C6A-477E-9B5C-46D85D463259">
+                <File Id="Diascan.Utils.DataBuffers.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Utils.DataBuffers.dll" />
+            </Component>
+            <Component Id="Diascan.Utils.FileMapper.dll" Guid="FB4705FB-01B6-4021-A822-BEFB4BB89BDC">
+                <File Id="Diascan.Utils.FileMapper.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Utils.FileMapper.dll" />
+            </Component>
+            <Component Id="Diascan.Utils.IO.dll" Guid="BE5F8B01-291C-41D2-8EBC-BDE07383844B">
+                <File Id="Diascan.Utils.IO.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Utils.IO.dll" />
+            </Component>
+            <Component Id="Diascan.Utils.Maths.dll" Guid="8318A0EA-8792-46CB-82EC-179CD12E3945">
+                <File Id="Diascan.Utils.Maths.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Diascan.Utils.Maths.dll" />
+            </Component>
+            <Component Id="DiCore.Lib.NDT.Carrier.dll" Guid="117AA072-C6E9-4140-95F5-89FEBCE70A53">
+                <File Id="DiCore.Lib.NDT.Carrier.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiCore.Lib.NDT.Carrier.dll" />
+            </Component>
+            <Component Id="DiCore.Lib.NDT.Carrier.dll.config" Guid="81C231C5-AA7A-4139-ADEA-4FF777AE68DF">
+                <File Id="DiCore.Lib.NDT.Carrier.dll.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiCore.Lib.NDT.Carrier.dll.config" />
+            </Component>
+            <Component Id="DiCore.Lib.NDT.CoordinateProvider.dll" Guid="55D05A09-5190-4800-865B-A03B2437CE32">
+                <File Id="DiCore.Lib.NDT.CoordinateProvider.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiCore.Lib.NDT.CoordinateProvider.dll" />
+            </Component>
+            <Component Id="DiCore.Lib.NDT.CoordinateProvider.dll.config" Guid="6E703F9B-5ECF-414B-AF2B-6FD496EE3841">
+                <File Id="DiCore.Lib.NDT.CoordinateProvider.dll.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiCore.Lib.NDT.CoordinateProvider.dll.config" />
+            </Component>
+            <Component Id="DiCore.Lib.NDT.DataProviders.dll" Guid="3A9D5733-8CD3-4BD0-86C3-945E026FE80D">
+                <File Id="DiCore.Lib.NDT.DataProviders.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiCore.Lib.NDT.DataProviders.dll" />
+            </Component>
+            <Component Id="DiCore.Lib.NDT.DataProviders.dll.config" Guid="34650F89-B2F2-4890-ACF6-B1270D2B88E3">
+                <File Id="DiCore.Lib.NDT.DataProviders.dll.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiCore.Lib.NDT.DataProviders.dll.config" />
+            </Component>
+            <Component Id="DiCore.Lib.NDT.DiagnosticData.dll" Guid="B4BE4FA1-3CB7-4895-B076-16F1072DF163">
+                <File Id="DiCore.Lib.NDT.DiagnosticData.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiCore.Lib.NDT.DiagnosticData.dll" />
+            </Component>
+            <Component Id="DiCore.Lib.NDT.DiagnosticData.dll.config" Guid="80090C0F-9F32-4BB6-80F4-A734046AEA52">
+                <File Id="DiCore.Lib.NDT.DiagnosticData.dll.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiCore.Lib.NDT.DiagnosticData.dll.config" />
+            </Component>
+            <Component Id="DiCore.Lib.NDT.Types.dll" Guid="5207CCEA-86E7-4F28-A561-9E0A1F8E351A">
+                <File Id="DiCore.Lib.NDT.Types.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiCore.Lib.NDT.Types.dll" />
+            </Component>
+            <Component Id="DiCore.Lib.NDT.Types.dll.config" Guid="D16A6CCD-8F73-472C-A3FD-7C3ADBA45742">
+                <File Id="DiCore.Lib.NDT.Types.dll.config" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiCore.Lib.NDT.Types.dll.config" />
+            </Component>
+            <Component Id="DiCore.Lib.ServerTasks.Crc32.dll" Guid="3E0FA729-9D04-4DD8-A1A6-54A01E593790">
+                <File Id="DiCore.Lib.ServerTasks.Crc32.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DiCore.Lib.ServerTasks.Crc32.dll" />
+            </Component>
+            <Component Id="DirectoryDataModel.db" Guid="7B4606EE-838E-4095-A9F9-CF9AD96700FF">
+                <File Id="DirectoryDataModel.db" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\DirectoryDataModel.db" />
+            </Component>
+            <Component Id="LiteDB.dll" Guid="5316D30E-7C0C-4C52-B9C7-6258D50FC72F">
+                <File Id="LiteDB.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\LiteDB.dll" />
+            </Component>
+            <Component Id="LiteDB.xml" Guid="F36B48A1-8DC9-4F06-AB88-2AABBC8FB36A">
+                <File Id="LiteDB.xml" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\LiteDB.xml" />
+            </Component>
+            <Component Id="Newtonsoft.Json.dll" Guid="D0631D80-F20A-4BEE-A65D-9982310B2E8C">
+                <File Id="Newtonsoft.Json.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Newtonsoft.Json.dll" />
+            </Component>
+            <Component Id="Newtonsoft.Json.xml" Guid="96527CE8-F3EE-4CAA-B52D-DFFE755474B2">
+                <File Id="Newtonsoft.Json.xml" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Newtonsoft.Json.xml" />
+            </Component>
+            <Component Id="Npgsql.dll" Guid="ABC041F6-F6EE-450D-A0DC-3DE5B215BB38">
+                <File Id="Npgsql.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Npgsql.dll" />
+            </Component>
+            <Component Id="Npgsql.xml" Guid="39F36BD4-554C-464A-A609-30706A43A983">
+                <File Id="Npgsql.xml" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Npgsql.xml" />
+            </Component>
+            <Component Id="Pri.LongPath.dll" Guid="68FE0886-A38E-46FF-BAC4-CE6499C025E3">
+                <File Id="Pri.LongPath.dll" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\Pri.LongPath.dll" />
+            </Component>
+            <Component Id="SensorMediaIdentifiers.db" Guid="D40E7224-AD16-41D0-8D32-FC8614A304B6">
+                <File Id="SensorMediaIdentifiers.db" KeyPath="yes" Source="$(var.Diascan.Agent.Service.TargetDir)\SensorMediaIdentifiers.db" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ServiceLibraries">
+            <ComponentRef Id="Aspose.Cells.dll" />
+            <ComponentRef Id="AutoMapper.dll" />
+            <ComponentRef Id="AutoMapper.xml" />
+            <ComponentRef Id="Carriers.db" />
+            <ComponentRef Id="DiagnosticInformationAnalyzer.dll" />
+            <ComponentRef Id="DiagnosticInformationAnalyzer.dll.config" />
+            <ComponentRef Id="Diascan.Agent.CalcDiagDataLossTask.dll" />
+            <ComponentRef Id="Diascan.Agent.CalcDiagDataLossTask.dll.config" />
+            <ComponentRef Id="Diascan.Agent.ComputeHashes.dll" />
+            <ComponentRef Id="Diascan.Agent.ComputeHashes.dll.config" />
+            <ComponentRef Id="Diascan.Agent.Contractors.dll" />
+            <ComponentRef Id="Diascan.Agent.DiagDataLoader.cs.dll" />
+            <ComponentRef Id="Diascan.Agent.DiagDataLoader.cs.dll.config" />
+            <ComponentRef Id="Diascan.Agent.DirectoryDataModel.dll" />
+            <ComponentRef Id="Diascan.Agent.DirectoryDataModel.dll.config" />
+            <ComponentRef Id="Diascan.Agent.Logger.dll" />
+            <ComponentRef Id="Diascan.Agent.Manager.dll" />
+            <ComponentRef Id="Diascan.Agent.Manager.dll.config" />
+            <ComponentRef Id="Diascan.Agent.ModelDB.dll" />
+            <ComponentRef Id="Diascan.Agent.ModelDB.dll.config" />
+            <ComponentRef Id="Diascan.Agent.Service.exe" />
+            <ComponentRef Id="Diascan.Agent.Service.exe.config" />
+            <ComponentRef Id="Diascan.CdlChe_king.dll" />
+            <ComponentRef Id="Diascan.NDT.Enums.dll" />
+            <ComponentRef Id="Diascan.NDT.Enums.xml" />
+            <ComponentRef Id="Diascan.Utils.DataBuffers.dll" />
+            <ComponentRef Id="Diascan.Utils.FileMapper.dll" />
+            <ComponentRef Id="Diascan.Utils.IO.dll" />
+            <ComponentRef Id="Diascan.Utils.Maths.dll" />
+            <ComponentRef Id="DiCore.Lib.NDT.Carrier.dll" />
+            <ComponentRef Id="DiCore.Lib.NDT.Carrier.dll.config" />
+            <ComponentRef Id="DiCore.Lib.NDT.CoordinateProvider.dll" />
+            <ComponentRef Id="DiCore.Lib.NDT.CoordinateProvider.dll.config" />
+            <ComponentRef Id="DiCore.Lib.NDT.DataProviders.dll" />
+            <ComponentRef Id="DiCore.Lib.NDT.DataProviders.dll.config" />
+            <ComponentRef Id="DiCore.Lib.NDT.DiagnosticData.dll" />
+            <ComponentRef Id="DiCore.Lib.NDT.DiagnosticData.dll.config" />
+            <ComponentRef Id="DiCore.Lib.NDT.Types.dll" />
+            <ComponentRef Id="DiCore.Lib.NDT.Types.dll.config" />
+            <ComponentRef Id="DiCore.Lib.ServerTasks.Crc32.dll" />
+            <ComponentRef Id="DirectoryDataModel.db" />
+            <ComponentRef Id="LiteDB.dll" />
+            <ComponentRef Id="LiteDB.xml" />
+            <ComponentRef Id="Newtonsoft.Json.dll" />
+            <ComponentRef Id="Newtonsoft.Json.xml" />
+            <ComponentRef Id="Npgsql.dll" />
+            <ComponentRef Id="Npgsql.xml" />
+            <ComponentRef Id="Pri.LongPath.dll" />
+            <ComponentRef Id="SensorMediaIdentifiers.db" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

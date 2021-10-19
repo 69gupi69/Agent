@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define Name="ПО ПДИ(DEV)" ?>
+  <?define Version="1.0.4.0" ?>
+  <?define Manufacturer="Diascan" ?>
+  <?define NetFx472MinRelease = 461808 ?>
+</Include>

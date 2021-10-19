@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" InitialTargets="EnsureWixToolsetInstalled" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>10e6daed-588d-4e3c-9292-dad58b14689a</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>Installer</OutputName>
+    <OutputType>Package</OutputType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <Name>Diascan.Agent.Installer</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+    <Cultures>ru-RU</Cultures>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <Cultures>ru-RU</Cultures>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ClientApp.wxs" />
+    <Compile Include="Main.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientApp.xslt" />
+    <Content Include="DiascanAgent.db" />
+    <Content Include="License.rtf" />
+    <Content Include="templog.log" />
+    <Content Include="Variables.wxi" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+        <Visible>False</Visible>
+        <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+        <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Diascan.Agent.ClientApp\Diascan.Agent.ClientApp.csproj">
+      <Name>Diascan.Agent.ClientApp</Name>
+      <Project>{825886c9-1ab7-428d-9afc-0aeefb98882e}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
+  <Target Name="EnsureWixToolsetInstalled" Condition=" '$(WixTargetsImported)' != 'true' ">
+    <Error Text="The WiX Toolset v3.11 (or newer) build tools must be installed to build this project. To download the WiX Toolset, see http://wixtoolset.org/releases/" />
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>"%25WIX%25\bin\heat.exe" dir "$(SolutionDir)Diascan.Agent.ClientApp\bin\Release" -var var.Diascan.Agent.ClientApp.TargetDir -dr InstallLocation -suid -gg -g1 -sfrag -sreg -srd -cg ClientAppLibraries -out "$(ProjectDir)ClientApp.wxs" -t "$(ProjectDir)ClientApp.xslt</PreBuildEvent>
+  </PropertyGroup>
+  <!--	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target-->
+	<Target Name="AfterBuild">
+	    <GenerateBootstrapper ApplicationFile="$(TargetFileName)" 
+	                          ApplicationName="Installer" 
+	                          BootstrapperItems="@(BootstrapperPackage)" 
+	                          ComponentsLocation="Relative" 
+	                          CopyComponents="True" 
+	                          OutputPath="$(OutputPath)" 
+	                          Path="C:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\" 
+	                          FallbackCulture="ru-RU" />
+	</Target>
+	
+</Project>

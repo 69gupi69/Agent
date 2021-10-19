@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>ORIS</authors>
+    <owners>Transneft-Diascan</owners>
+    <projectUrl>http://tfs.ctd.tn.corp:8080/tfs/DevCollection/DiCore</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2021</copyright>
+    <tags>Diascan.Agent.Types</tags>
+  </metadata>
+</package>

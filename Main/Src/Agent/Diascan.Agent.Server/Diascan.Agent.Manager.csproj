@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A7FA9D98-D661-4AA8-8651-8FCE8CDD5A61}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Diascan.Agent.Manager</RootNamespace>
+    <AssemblyName>Diascan.Agent.Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=8.3.2.1, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Aspose.Cells.8.3.2.1\lib\net40\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Diascan.NDT.Enums, Version=1.0.1.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Diascan.NDT.Enums.1.0.1.3\lib\net472\Diascan.NDT.Enums.dll</HintPath>
+    </Reference>
+    <Reference Include="LiteDB, Version=4.1.2.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\LiteDB.4.1.2\lib\net40\LiteDB.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller.cs" />
+    <Compile Include="DataModelHelper.cs" />
+    <Compile Include="AgentManager.cs" />
+    <Compile Include="ExportToExcel.cs" />
+    <Compile Include="ControllerHalper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\DiCore.Libs\Dev\DiCore.Lib.NDT.DataProviders\DiCore.Lib.NDT.DataProviders.csproj">
+      <Project>{DC26C1E7-4F52-4190-AACC-1FBB2F0559FB}</Project>
+      <Name>DiCore.Lib.NDT.DataProviders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\DiCore.Libs\Dev\DiCore.Lib.NDT.Types\DiCore.Lib.NDT.Types.csproj">
+      <Project>{6E4319B6-3BB9-42C9-B776-8ECCC27DF3F0}</Project>
+      <Name>DiCore.Lib.NDT.Types</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.CalcDiagDataLossTask\Diascan.Agent.CalcDiagDataLossTask.csproj">
+      <Project>{003138eb-6830-4854-aa95-2777903385aa}</Project>
+      <Name>Diascan.Agent.CalcDiagDataLossTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.DiagDataLoader.cs\Diascan.Agent.DiagDataLoader.cs.csproj">
+      <Project>{86c00b36-670d-4c30-a993-5ad06e172f13}</Project>
+      <Name>Diascan.Agent.DiagDataLoader.cs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.DirectoryDataModel\Diascan.Agent.DirectoryDataModel.csproj">
+      <Project>{f023db6c-2bd4-4927-8979-09df0ec3670b}</Project>
+      <Name>Diascan.Agent.DirectoryDataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.Logger\Diascan.Agent.Logger.csproj">
+      <Project>{f915e512-4b20-401d-848b-c1eccfc72a53}</Project>
+      <Name>Diascan.Agent.Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.ModelDB\Diascan.Agent.ModelDB.csproj">
+      <Project>{f7fbecaf-b931-4fe9-aa8d-d322bb583e70}</Project>
+      <Name>Diascan.Agent.ModelDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.SharingEvents\Diascan.Agent.SharingEvents.csproj">
+      <Project>{394f72c9-2176-4757-b714-c031735d86e4}</Project>
+      <Name>Diascan.Agent.SharingEvents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.SOHandling\Diascan.Agent.SOHandling.csproj">
+      <Project>{34913dea-cfed-4400-ad4c-0f1259defc35}</Project>
+      <Name>Diascan.Agent.SOHandling</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="DirectoryDataModel.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Resources\Aspose.Total.lic" />
+    <None Include="SensorMediaIdentifiers.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

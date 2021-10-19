@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A7FA9D98-D661-4AA8-8651-8FCE8CDD5A61}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Diascan.Agent.Manager</RootNamespace>
+    <AssemblyName>Diascan.Agent.Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.1</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.1</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Diascan.NDT.Enums, Version=1.0.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Diascan.NDT.Enums.1.0.1.5\lib\net472\Diascan.NDT.Enums.dll</HintPath>
+    </Reference>
+    <Reference Include="Diascan.Utils.IO, Version=1.0.4.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Diascan.Utils.IO.1.0.4.9\lib\net472\Diascan.Utils.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Pri.LongPath, Version=2.0.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Pri.LongPath.2.0.47\lib\net45\Pri.LongPath.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller.cs" />
+    <Compile Include="DataModelHelper.cs" />
+    <Compile Include="AgentManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\DiCore.Libs\Dev\DiCore.Lib.NDT.DataProviders\DiCore.Lib.NDT.DataProviders.csproj">
+      <Project>{DC26C1E7-4F52-4190-AACC-1FBB2F0559FB}</Project>
+      <Name>DiCore.Lib.NDT.DataProviders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\DiCore.Libs\Dev\DiCore.Lib.NDT.Types\DiCore.Lib.NDT.Types.csproj">
+      <Project>{6E4319B6-3BB9-42C9-B776-8ECCC27DF3F0}</Project>
+      <Name>DiCore.Lib.NDT.Types</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.AnalysisManager\Diascan.Agent.AnalysisManager.csproj">
+      <Project>{08eda784-b99c-4c17-b87a-a84d59a22eee}</Project>
+      <Name>Diascan.Agent.AnalysisManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.CalcDiagDataLossTask\Diascan.Agent.CalcDiagDataLossTask.csproj">
+      <Project>{003138eb-6830-4854-aa95-2777903385aa}</Project>
+      <Name>Diascan.Agent.CalcDiagDataLossTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.DirectoryDataModel\Diascan.Agent.DirectoryDataModel.csproj">
+      <Project>{f023db6c-2bd4-4927-8979-09df0ec3670b}</Project>
+      <Name>Diascan.Agent.DirectoryDataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.FuzzySearch\Diascan.Agent.FuzzySearch.csproj">
+      <Project>{d3d3d4db-4475-4baf-8ef1-2e7524854053}</Project>
+      <Name>Diascan.Agent.FuzzySearch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.LiteDbAccess\Diascan.Agent.LiteDbAccess.csproj">
+      <Project>{d202febe-5462-4cd8-8d4a-c31cca94c837}</Project>
+      <Name>Diascan.Agent.LiteDbAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.Logger\Diascan.Agent.Logger.csproj">
+      <Project>{f915e512-4b20-401d-848b-c1eccfc72a53}</Project>
+      <Name>Diascan.Agent.Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.SharingEvents\Diascan.Agent.SharingEvents.csproj">
+      <Project>{394f72c9-2176-4757-b714-c031735d86e4}</Project>
+      <Name>Diascan.Agent.SharingEvents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.ErrorHandler\Diascan.Agent.ErrorHandler.csproj">
+      <Project>{34913dea-cfed-4400-ad4c-0f1259defc35}</Project>
+      <Name>Diascan.Agent.ErrorHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.TaskManager\Diascan.Agent.TaskManager.csproj">
+      <Project>{E4E1F499-42A5-406F-AF6C-7C8A5095779C}</Project>
+      <Name>Diascan.Agent.TaskManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diascan.Agent.Types\Diascan.Agent.Types.csproj">
+      <Project>{8e58eb4c-1da4-45b0-b976-3e3f6634a485}</Project>
+      <Name>Diascan.Agent.Types</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DirectoryDataModel.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="CarrierData.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

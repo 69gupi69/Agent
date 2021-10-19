@@ -1,0 +1,1 @@
+{"version":3,"file":"notificator.js","sourceRoot":"","sources":["notificator.ts"],"names":[],"mappings":";;;;IAAA,IAAM,OAAO,GAAG,mCAAmC,CAAC;IACpD,IAAI,SAAS,GAAG,CAAC,CAAC,OAAO,CAAC,CAAC,QAAQ,CAAC,MAAM,CAAC,CAAC;IAC5C,SAAS,CAAC,iBAAiB,CAAC,EAC3B,CAAC,CAAC;IACH,IAAI,cAAc,GAA0B,SAAS,CAAC,IAAI,CAAC,mBAAmB,CAAC,CAAC;IACvE,wCAAc"}

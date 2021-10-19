@@ -1,0 +1,17 @@
+﻿{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    //"allowJs": true,
+    "target": "es5",
+    "module": "amd",
+    "sourceMap": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "Scripts/app/**/*",
+    "Scripts/typings/**/*"
+  ]
+}

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@ViewBag.ISName</title>
+    @Styles.Render("~/Content/bootstrap-css")
+    @Styles.Render("~/Content/kendo/kendo-css")
+    @Styles.Render("~/Content/site-css")
+    @Scripts.Render("~/Scripts/base")
+    <script>
+        window["BaseApiUrl"]            = "@ViewBag.WebApiUrl";
+        window["ApplicationId"]         = "@ViewBag.ApplicationId";
+        window["ApplicationCode"]       = "@ViewBag.ApplicationCode";
+        window["UserId"]                = "@ViewBag.UserId";
+        window["UserRoles"]             = @Html.Raw(Json.Encode(ViewBag.UserRoles));
+        window["UserContractorId"]      = "@ViewBag.UserContractorId";
+        window["StaffApiUrl"]           = "@ViewBag.StaffApiUrl";
+        window["WebApiMainUrl"] = "@ViewBag.WebApiMainUrl";
+        window["AppPages"] = {
+            calculations: "@Url.Action("Index", "Calculations")",
+            identifiers: "@Url.Action("Index", "Identifiers")"
+        };
+
+    </script>
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+<header class="container-fluid" id="mainMenu">
+    <nav class="navbar navbar-static-top">
+        <div class="logo-container"></div>
+        <div class="navbar-header">
+            <div class="navbar-brand">
+                @ViewBag.ISName <span id="moduleTitle" class="module-title" data-role="title"></span>
+            </div>
+        </div>
+        <div class="navbar-collapse" data-role="navigation"></div>
+        <div class="navbar-right" data-role="userinfo">@ViewBag.UserName</div>
+    </nav>
+</header>
+<section class="container-fluid">
+    @RenderBody()
+</section>
+<footer class="container-fluid">
+    <hr />
+    <p>&copy; 2019 - АО "Транснефть-Диаскан". @ViewBag.VersionText</p>
+</footer>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

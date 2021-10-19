@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+<!--
+  "%WIX%\bin\heat.exe" dir "$(SolutionDir)Diascan.Agent.Service\bin\Release" -var var.Diascan.Agent.Service.TargetDir -dr SERVICE -suid -gg -g1 -sfrag -sreg -srd -cg ServiceLibraries -out "$(ProjectDir)Service.wxs" -t "$(ProjectDir)Service.xslt"
+  "%WIX%\bin\heat.exe" dir "$(SolutionDir)Diascan.Agent.ClientApp\bin\Release" -var var.Diascan.Agent.ClientApp.TargetDir -dr DBFORM -suid -gg -g1 -sfrag -sreg -srd -cg ClientAppLibraries -out "$(ProjectDir)DBForm.wxs" -t "$(ProjectDir)DBForm.xslt"
+  "%WIX%\bin\heat.exe" dir "$(SolutionDir)Diascan.Agent.ContextMenu\bin\Release" -var var.Diascan.Agent.ContextMenu.TargetDir -dr CONTEXTMENU -suid -gg -g1 -sfrag -srd -cg ContextMenuLibraries -out "$(ProjectDir)ContextMenu.wxs" -t "$(ProjectDir)ContextMenu.xslt"
+-->
+
+  <?include Variables.wxi ?>
+
+  <Product Id="2FED5281-CD4E-49BE-91DA-A429F985EFAF"
+         Name="$(var.Name)" 
+         Language="1049"
+         Codepage="1251"
+         Version="$(var.Version)"
+         Manufacturer="$(var.Manufacturer)"
+         UpgradeCode="6E447402-56FB-4E42-9A5D-0F8FA82A50D0">
+
+    <Package 
+             InstallerVersion="200"
+             Compressed="yes"
+             Keywords="Installer"
+             SummaryCodepage="1251"
+             Description="Программа установки"
+             Manufacturer="$(var.Manufacturer)"
+             InstallScope="perMachine"
+             Comments="Пакет установки ПО ПДИ" />
+
+    <Media Id="1" Cabinet="demoApp.cab" EmbedCab="yes" />
+    
+    <!-- Создание каталогов для установки программы -->
+    <!-- Виртуальный каталог -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <!-- Подкаталог Program Files\Diascan\Agent -->
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="ManufacturerFolder" Name="Diascan">
+          <Directory Id="InstallLocation" Name="Agent" >
+          </Directory>
+        </Directory>
+      </Directory>
+      <!-- Пуск\Программы\Agent -->
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ProgramMenuDir" Name="Agent" />
+      </Directory>
+      <!-- Рабочий стол -->
+      <Directory Id="DesktopFolder" />
+      <!-- Автозагрузка -->
+      <Directory Id="StartupFolder" />
+      <!-- Папка, откуда производится установка -->
+      <Directory Id="SourceDir" />
+    </Directory>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="ProgramFilesFolder" />
+    
+    <DirectoryRef Id="InstallLocation">
+      <!-- Исполняемый файл и ярлыки -->
+      <Component Id="ClientApp" Guid="334E2DD4-4801-4AB6-AE4F-9BCDED83C56B">
+        <File Id="AgentApplication" 
+              Name="$(var.Diascan.Agent.ClientApp.TargetFileName)" 
+              Source="$(var.Diascan.Agent.ClientApp.TargetPath)" 
+              DiskId="1" 
+              KeyPath="yes" >
+          <!-- Ярлыки для запуска программы -->
+          <Shortcut Id="DesktopShortcut" 
+                    Name="Agent Application" 
+                    Description="Ярлык на рабочем столе" 
+                    WorkingDirectory="InstallLocation" 
+                    Directory="DesktopFolder" 
+                    Advertise="yes" 
+                    Icon="ProgramIcon.ico"/>
+          <Shortcut Id="AutorunShortcut"
+                    Name="Agent Application"
+                    Description="Автозагрузка"
+                    WorkingDirectory="InstallLocation"
+                    Directory="StartupFolder"
+                    Advertise="yes"
+                    Icon="ProgramIcon.ico"/>
+          <Shortcut Id="ProgramsMenuShortcut" 
+                    Name="Agent Application" 
+                    Description="Запускает программу" 
+                    WorkingDirectory="InstallLocation" 
+                    Directory="ProgramMenuDir" 
+                    Advertise="yes" 
+                    Icon="ProgramIcon.ico"/>
+        </File>
+      </Component>
+    </DirectoryRef>
+
+    
+    <!-- Элементы в главном меню -->
+    <DirectoryRef Id="ProgramMenuDir">
+      <!-- Ярлык для удаления программы -->
+      <Component Id="UninstallShortcut" Guid="F2A791D8-E440-4420-B321-71FC880352EF">
+        <Shortcut Id="UninstallProduct"
+                  Name="Удалить Agent"
+                  Target="[System64Folder]msiexec.exe"
+                  Arguments="/x [ProductCode]"
+                  Icon="Uninstall.ico"
+                  Description="Удаляет Agent с данного компьютера" />
+        <RegistryValue Root="HKCU" 
+                       Key="Software\[Manufacturer]\[ProductName]"
+                       Name="installed" 
+                       Type="integer" 
+                       Value="1" 
+                       KeyPath="yes" />
+        <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+      </Component>
+    </DirectoryRef>
+
+
+    <!--Файлы базы данных-->
+    <PropertyRef Id='WIX_ACCOUNT_USERS' />
+    <DirectoryRef Id="InstallLocation">
+      <Component Id="templog.log" Guid="1567093B-5E94-4773-8282-55709EEB5271">
+        <File Id="templog.log"
+              KeyPath="yes"
+              Source="templog.log">
+          <Permission User='[WIX_ACCOUNT_USERS]' GenericAll='yes' />
+        </File>
+      </Component>
+      <Component Id="DiascanAgent.db" Guid="752EDB35-783F-4111-AF7C-75AF3F52543A">
+        <File Id="DiascanAgent.db"
+              KeyPath="yes"
+              Source="DiascanAgent.db">
+          <Permission User='[WIX_ACCOUNT_USERS]' GenericAll='yes' />
+        </File>
+      </Component>
+      <Component Id="Carriers.db" Guid="E0F8EAAF-6ED2-4E6D-A921-5B96366A5D08">
+        <File Id="Carriers.db"
+              KeyPath="yes"
+              Source="$(var.Diascan.Agent.ClientApp.TargetDir)\Carriers.db">
+          <Permission User='[WIX_ACCOUNT_USERS]' GenericAll='yes' />
+        </File>
+      </Component>
+      <Component Id="DirectoryDataModel.db" Guid="32E1EEC0-CBDC-41EF-B3C4-89052D46CF15">
+        <File Id="DirectoryDataModel.db"
+              KeyPath="yes"
+              Source="$(var.Diascan.Agent.ClientApp.TargetDir)\DirectoryDataModel.db">
+          <Permission User='[WIX_ACCOUNT_USERS]' GenericAll='yes' />
+        </File>
+      </Component>
+      <Component Id="SensorMediaIdentifiers.db" Guid="E2B6F9C1-FA78-46E5-94C3-8E46F14D1B35">
+        <File Id="SensorMediaIdentifiers.db"
+              KeyPath="yes"
+              Source="$(var.Diascan.Agent.ClientApp.TargetDir)\SensorMediaIdentifiers.db">
+          <Permission User='[WIX_ACCOUNT_USERS]' GenericAll='yes' />
+        </File>
+      </Component>
+    </DirectoryRef>
+    
+    <!-- Наборы компонентов -->
+    <Feature Id="Complete" Title="Agent" Level="1">
+      <ComponentRef Id="UninstallShortcut" />
+      <ComponentGroupRef Id="ClientAppLibraries" />
+      <ComponentRef Id="ClientApp" />
+      <ComponentRef Id="DiascanAgent.db" />
+      <ComponentRef Id="Carriers.db" />
+      <ComponentRef Id="DirectoryDataModel.db" />
+      <ComponentRef Id="SensorMediaIdentifiers.db" />
+      <ComponentRef Id="templog.log" />
+    </Feature>
+
+    <Icon Id="Uninstall.ico" SourceFile="$(var.Diascan.Agent.ClientApp.ProjectDir)Resources\favicon-16x16.ico"  />
+    <Icon Id="ProgramIcon.ico" SourceFile="$(var.Diascan.Agent.ClientApp.ProjectDir)Resources\favicon-16x16.ico" />
+
+    <!--Интерфейс установки-->
+    <UIRef Id="WixUI_InstallDir" />
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+    
+    <Property Id="NETFRAMEWORK47" Value="1" Secure="yes">
+        <RegistrySearch
+            Id="RegSearch"
+            Root="HKLM"
+            Key="SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"
+            Name="Release"
+            Type="raw" />
+    </Property>
+
+    <!--Условия для запуска CustomAction-->
+    <InstallExecuteSequence>
+      <Custom
+        Action="LaunchApplication" After="InstallFinalize">
+        NOT Installed
+      </Custom>
+    </InstallExecuteSequence>
+
+    <!--Запуск приложения после установки-->
+    <Property Id="WixShellExecTarget" Value="[InstallLocation]Diascan.Agent.ClientApp.exe" />
+    <CustomAction Id="LaunchApplication"
+                  BinaryKey="WixCA"
+                  DllEntry="WixShellExec"
+                  Impersonate="yes" />
+  </Product>
+</Wix>
